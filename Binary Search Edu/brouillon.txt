@@ -1,0 +1,27 @@
+n,k = map(int,input().split())
+a = list(map(int,input().split()))
+q = list(map(int,input().split()))
+
+for i in range(k):
+    t = a
+    x = q[i]
+    c,d = True,0
+    #print(f"x = {x} ")
+    print(t)
+    print(x)
+    while len(t) > 1 and c:
+        #print(t)
+        if len(t)%2 == 0 :
+            #print(t[(len(t)//2)-1])
+            if t[(len(t)//2)-1] == x : print("YES") ; c = False
+            elif t[(len(t)//2)-1] > x : t = t[:(len(t)//2)-1]
+            else : t = t[(len(t)//2):]
+        else :
+            #print(t[(len(t)//2)] )
+            if t[(len(t)//2)] == x : print("YES") ; c = False
+            elif t[(len(t)//2)] > x : t = t[:(len(t)//2)]
+            else : t = t[(len(t)//2):]
+        d += 1
+
+    if len(t) == 0 or not c and d != 0 : print("NO")
+    else : print("YES")
